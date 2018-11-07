@@ -86,7 +86,12 @@ $(function() {
 			
 			var seed = customSeed;
 			if(seed === undefined) {
-				seed = '' + new Date().getTime();
+				//OLD method of seeding
+				//seed = '' + new Date().getTime();
+				var coeff = 1000 * 5;
+				var date = new Date();  //or use any other date
+				var rounded = new Date(Math.round(date.getTime() / coeff) * coeff)
+				seed = '' + rounded;
 			}
 			Math.seedrandom(seed);
 			
